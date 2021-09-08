@@ -18,6 +18,15 @@ export default class Bot extends EventEmitter {
         this.socket.on('mainPackage',this.handlePkg);
     }
     handlePkg(pkg: mainPackage) {
-
+        let res = parse(pkg,this);
+        for (let task of res) {
+            this.emit(task.name, task.data);
+        }
+    }
+    playerRequest(task: number, data: any) {
+        this.socket.emit('playerRequest',{task, ...data});
+    }
+    chat(id: string, message: string) {
+        this.playerRequest(300, {id, message});
     }
 }
