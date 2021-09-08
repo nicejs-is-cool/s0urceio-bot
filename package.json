@@ -12,5 +12,11 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "socket.io-client": "^2.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16.7.13"
+  }
 }
